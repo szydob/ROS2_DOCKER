@@ -1,0 +1,21 @@
+services:
+  ros2:
+    build: .
+    container_name: ros2_container
+    working_dir: /home/dv_ws
+    privileged: true
+    stdin_open: true
+    tty: true
+    networks:
+      - ros_network
+    volumes:
+      - ./dv_ws:/home/dv_ws
+      - ./rosbag2:/home/rosbag2
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+    entrypoint: ["/home/dv_ws/start.sh"]
+
+networks:
+  ros_network:
+    driver: bridge

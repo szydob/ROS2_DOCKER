@@ -1,0 +1,8 @@
+# Ignore the src, build, install and log directories inside dv1_ws
+dv_ws/src/
+dv_ws/build
+dv_ws/insall
+dv_ws/log
+
+# Ignore the rosbag1 directory
+rosbag2/
